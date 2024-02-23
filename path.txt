@@ -1,0 +1,12 @@
+
+/home/research/preprocessing_test/main.py
+
+/home/research/preprocessing_test/main-circle.py
+
+#PlanCT用ディレクトリ(加工する方)
+/home/research/preprocessing_test/RT-CT_41
+
+#CBCT用ディレクトリ(加工しない方)
+/home/research/preprocessing_test/preCBCT_41
+
+/home/research/preprocessing_test/cbct_sort.py
