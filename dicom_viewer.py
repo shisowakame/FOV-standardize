@@ -43,7 +43,7 @@ def dicom_viewer(args, skip):
         if not os.path.exists(output_folder):
             os.makedirs(output_folder, exist_ok=True)
             
-        j = 0
+        j = -1
         k = 0
         
         for i, dcm_file in enumerate(sorted_files):
