@@ -53,9 +53,22 @@ def dicom_viewer(args, skip):
                 k = k + 1
                 save_ndarray_as_dicom(cbct_img, cbct_ref, k, output_folder)
             """
-            
+            if skip == 0:
+                img, ref = dicom2ndarray(dcm_file)
+                #filename = str(i+1)
+                if img is not None:
+                    if dcm_folder == planct_dir:
+                        j = j + 1 #ファイル名
+                        # PlanCTの画像をリサイズ、クリップ、円形に切り抜き
+                        img = resize_image(img, cbct_pixel_spacing, ref.PixelSpacing)
+                        img = clip_image(img, cbct_rows, cbct_columns)
+                        img = fill_circle_outside(img, center, radius)
 
-            if dcm_folder == planct_dir and i % skip != 0:
+                        save_ndarray_as_dicom(img, ref, j, output_folder)
+                    
+                    images.append(img)
+
+            elif dcm_folder == planct_dir and i % skip != 0:
                 continue  # どちらかのCT画像が大幅に多い場合、数枚おきにスキップしてスライス箇所を合わせる
 
             img, ref = dicom2ndarray(dcm_file)
