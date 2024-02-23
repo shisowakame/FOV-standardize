@@ -11,7 +11,7 @@ import numpy as np
 #python3 main-circle.py RT-CT_41 preCBCT_41
 
 def find_circle_center_and_radius():
-    dcm_path = '/home/research/preprocessing_test/preCBCT_41/CT.1.2.246.352.63.1.4912167392745633826.5984605804961339052.dcm'  # DICOMファイルへのパスを指定
+    dcm_path = '/home/research/preprocessing_test/preCBCT_41/CT.1.2.246.352.63.1.4912167392745633826.5984605804961339052.dcm'  # CBCT-DICOMファイルへのパスを指定
     dcm_data = pydicom.dcmread(dcm_path)
     image = dcm_data.pixel_array
 
