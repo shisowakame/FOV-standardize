@@ -40,7 +40,8 @@ def main(paths_file):
         print("無効な選択です。")
     
     subprocess.run(['python3', CBCT_sort, CBCT_dir])
-    
+
+    """
     print("")
     print("---------------------------------------------------------------")
     print("出力結果に不要なスライドは含まれていましたか？：")
@@ -52,7 +53,7 @@ def main(paths_file):
     #if choice2 == '1':
     
     #elif choice2 == '2':
-    
+    """
 
 if __name__ == "__main__":
     import sys
