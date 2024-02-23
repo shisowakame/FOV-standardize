@@ -5,6 +5,9 @@
 
 実行コマンドは以下： 
 ```
-python3 get_circle.py
-python3 standardize.py PlanCT_DirName CBCT_DirName
+python3 standardize.py path.txt
+```
+最後に不要なファイルを確認して削除  
+```
+python3 single_dicom_viewer.py preCBCT_41_fixed
 ```
