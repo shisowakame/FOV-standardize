@@ -27,7 +27,10 @@ def copy_and_rename_dicom_files(src_folder):
     
     # ソートされたファイルをコピー
     for i, file_path in enumerate(sorted_dicom_files, start=1):
-        new_file_name = f"{i}.dcm"
+        with open("file_number.txt", "r") as file:
+            number = int(file.read())
+        new_file_name = f"p{number}_{i}_out.dcm"
+        #new_file_name = f"{i}.dcm"
         new_file_path = os.path.join(dest_folder, new_file_name)
         shutil.copyfile(file_path, new_file_path)
         #print(f"{file_path} を {new_file_path} にコピーしました。")
