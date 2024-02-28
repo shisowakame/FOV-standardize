@@ -29,16 +29,17 @@ print("1) 半径と円の中心を測りなおす")
 print("2) defaultの半径と円の中心を使う")
 print("")
 choice = input()
-for number in range(15, 17):
-    
+
+for number in range(1, 17):
     
     main_path = '/home/research/preprocessing_test/main.py'
     main_circle_path = '/home/research/preprocessing_test/main-circle.py'
-    PlanCT_dir = f'/home/research/data/HirosakiUniv-small/trainB/RT-CT_{number}'
-    CBCT_dir = f'/home/research/data/HirosakiUniv-small/trainA/preCBCT_{number}'
+    PlanCT_dir = f'/home/research/data/HirosakiUniv-test/trainB/RT-CT_{number}'
+    CBCT_dir = f'/home/research/data/HirosakiUniv-test/trainA/preCBCT_{number}'
     CBCT_sort = '/home/research/preprocessing_test/cbct_sort.py'
-
-    
+ 
+    with open("file_number.txt", "w") as file:
+        file.write(str(number))
 
     if choice == '1':
 
