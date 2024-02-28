@@ -31,9 +31,11 @@ def save_ndarray_as_dicom(img, ref, j, output_folder):
     ds.Rows, ds.Columns = img_processed.shape
                     
     ds.PixelData = img_processed.tobytes()
-
-    # ファイルパスの生成を修正
-    filename = f"{j}_out.dcm"  # ファイル名のフォーマットを修正
+    
+    with open("file_number.txt", "r") as file:
+        number = int(file.read())
+    filename = f"p{number}_{j}_out.dcm"
+    
     path = os.path.join(output_folder, filename)
     #ds.save_as(path, write_like_original=False)
     dicom.dcmwrite(path, ds)
