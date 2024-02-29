@@ -1,7 +1,6 @@
 import os, glob
 from dicom_utils import dicom2ndarray, sort_dicom_files, save_ndarray_as_dicom
 from image_processing import fill_circle_outside, resize_image, clip_image
-from cbct_sort import copy_and_rename_dicom_files
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from matplotlib import gridspec
@@ -53,6 +52,7 @@ def dicom_viewer(args, skip):
                 k = k + 1
                 save_ndarray_as_dicom(cbct_img, cbct_ref, k, output_folder)
             """
+            """
             if skip == 0:
                 img, ref = dicom2ndarray(dcm_file)
                 #filename = str(i+1)
@@ -67,8 +67,15 @@ def dicom_viewer(args, skip):
                         save_ndarray_as_dicom(img, ref, j, output_folder)
                     
                     images.append(img)
+            """
+            if skip == 0:
+                print("")
+                print("----------------------------------------------------------------")
+                print("PlanCTとCBCTのディレクトリに同じものが入っている可能性があります。")
+                print("----------------------------------------------------------------")
+                print("")
 
-            elif dcm_folder == planct_dir and i % skip != 0:
+            if dcm_folder == planct_dir and i % (skip/2) != 0:
                 continue  # どちらかのCT画像が大幅に多い場合、数枚おきにスキップしてスライス箇所を合わせる
 
             img, ref = dicom2ndarray(dcm_file)
